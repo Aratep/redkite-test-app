@@ -1,0 +1,18 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 3rem;
+  padding: 1rem;
+  background-color: #f0f5f5;
+
+  .log-out__button {
+    text-decoration: underline;
+    cursor: pointer;
+    color: blue;
+  }
+
+  span {
+    margin-left: 1rem;
+  }
+}

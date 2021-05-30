@@ -1,0 +1,9 @@
+export const authActionTypes = {
+   // LOGIN TYPES
+   LOGIN_START: "LOGIN_START",
+   LOGIN_SUCCESS: "LOGIN_SUCCESS",
+   LOGIN_FAILURE: "LOGIN_FAILURE",
+
+   // LOG OUT TYPES
+   USER_LOG_OUT: "USER_LOG_OUT",
+};

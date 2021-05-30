@@ -1,0 +1,13 @@
+// MAIN APP STYLES
+@import "App.styles";
+
+// PAGES STYLES
+@import "pages/pages.styles";
+
+// COMPONENTS STYLES
+@import "components/components.styles";
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+}
