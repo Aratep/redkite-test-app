@@ -19,7 +19,6 @@ const authReducer = (state = INITIAL_STATE, action) => {
       case authActionTypes.LOGIN_START:
          return { ...state, isLoading: true };
       case authActionTypes.LOGIN_SUCCESS: {
-         console.log(action.payload);
          const { token = state.token, userInfo } = action.payload;
          return { ...state, isLoading: false, token, userInfo };
       }

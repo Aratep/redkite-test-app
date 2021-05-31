@@ -110,7 +110,7 @@ const StatisticsPage = (props) => {
                   <div
                      className="statistics-page__history-item reset-button"
                      onClick={onResetHistoryLog}>
-                     Reset History
+                     Clear History
                   </div>
                   {historyLog.map((hist, idx) => (
                      <div

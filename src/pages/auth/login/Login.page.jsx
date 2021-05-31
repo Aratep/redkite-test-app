@@ -37,9 +37,6 @@ const LoginPage = (props) => {
 
    return (
       <section className="login-page">
-         {/*<div className="login-page__logo-block">*/}
-         {/*   <img src={logoLingvoinsta} alt="logo" />*/}
-         {/*</div>*/}
          <div className="login-page__auth-block">
             <GridItem xs={12} sm={12} md={6} lg={6}>
                <div className="login-page__auth-block-card">

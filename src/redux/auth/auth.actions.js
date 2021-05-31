@@ -1,6 +1,9 @@
 import { authActionTypes } from "./auth.types";
 import authApi from "./auth.api.js";
 
+//ACTIONS
+import { setGlobalMessage } from "redux/common/common.actions";
+
 //LOG OUT
 export const userLogout = (errorMessage = "") => ({
    type: authActionTypes.USER_LOG_OUT,
@@ -37,9 +40,21 @@ export const loginAsync = ({ email, password }, history) => async (
          dispatch(
             loginSuccess({ token: loggedUser.token, userInfo: loggedUser })
          );
+         dispatch(
+            setGlobalMessage({
+               severity: "success",
+               text: "You are successfully logged in!",
+            })
+         );
          history.push("/statistics");
       } else {
-         dispatch(loginFailure("Wrong credentails."));
+         dispatch(
+            setGlobalMessage({
+               severity: "error",
+               text: "Wrong email or password.",
+            })
+         );
+         dispatch(loginFailure("Wrong email or password!"));
       }
    } catch (error) {
       dispatch(loginFailure(error));

@@ -1,23 +1,48 @@
 import React from "react";
 import { connect } from "react-redux";
 
+// BASE COMPONENTS
+import Notification from "components/notification/Notification.component";
 // ROUTES
 import AuthRoutes from "./pages/auth/AuthPages";
 import DashbaordRoutes from "./pages/dashboard/DashboardPages";
+//ACTIONS
+import { setGlobalMessage } from "redux/common/common.actions";
 
 function App(props) {
-   const { token } = props;
+   const { token, globalMessage, setGlobalMessage } = props;
 
    const View = token ? <DashbaordRoutes /> : <AuthRoutes />;
 
-   return <div className="App">{View}</div>;
+   const handleNotificationClose = () => {
+      setGlobalMessage(null);
+   };
+
+   return (
+      <div className="App">
+         <Notification
+            message={globalMessage?.text}
+            isOpened={!!globalMessage}
+            delay={7000}
+            severity={globalMessage?.severity}
+            handleNotificationClose={handleNotificationClose}
+            position={{ vertical: "top", horizontal: "center" }}
+         />
+         {View}
+      </div>
+   );
 }
 
 const mapStateToProps = (state) => {
-   const { auth } = state;
+   const { auth, common } = state;
    return {
       token: auth.token,
+      globalMessage: common.globalMessage,
    };
 };
 
-export default connect(mapStateToProps, null)(App);
+const mapDispatchToProps = (dispatch) => ({
+   setGlobalMessage: (message) => dispatch(setGlobalMessage(message)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
