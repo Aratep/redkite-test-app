@@ -38,7 +38,7 @@ const LoginPage = (props) => {
    return (
       <section className="login-page">
          <div className="login-page__auth-block">
-            <GridItem xs={12} sm={12} md={6} lg={6}>
+            <GridItem xs={12} sm={12} md={4} lg={4}>
                <div className="login-page__auth-block-card">
                   <GridItem
                      xs={12}
